@@ -1,9 +1,9 @@
 terraform {
 
   backend "s3" {
-    bucket = "tanushree-test1"
-    key    = "terraform-states/credit-boost/terraform.tfstate"
-    region = "us-west-2"
+    bucket = "testing-migrate-raunaq"
+    key    = "terraform-states/migrate-repo/terraform.tfstate"
+    region = "eu-north-1"
   }
   required_providers {
     aws = {
@@ -14,7 +14,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-west-2"
+  region = "eu-north-1"
 }
 
 resource "aws_iam_role" "very-secure-role" {
