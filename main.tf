@@ -1,14 +1,17 @@
 terraform {
 
-  backend "s3" {
-    bucket = "testing-migrate-raunaq"
-    key    = "terraform-states/migrate-repo/terraform.tfstate"
-    region = "eu-north-1"
-  }
   required_providers {
     aws = {
       version = ">= 5.39.0"
       source  = "hashicorp/aws"
+    }
+  }
+  cloud {
+    organization = "Testing_Raunaq"
+    hostname     = "app.terraform.io"
+    workspaces {
+      project = "migrate_repo"
+      name    = "migrate_repo_default"
     }
   }
 }
